@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Barium — Odoo modules</title>
+<meta name="description" content="Barium builds small, well-tested Odoo modules for Odoo 18, 19 and 20, Community and Enterprise.">
+<style>
+:root{--bg:#fbfbfa;--fg:#1d1f22;--muted:#5d636b;--line:#e3e5e8;--accent:#4b5bd6;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#141619;--fg:#eceef1;--muted:#9aa1ab;--line:#2a2e34;--accent:#8c98ff;--card:#1b1e22}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:700;letter-spacing:.02em;font-size:1.15rem}
+.logo span{color:var(--accent)}
+nav a{color:var(--muted);text-decoration:none;margin-left:20px}
+nav a:hover{color:var(--fg)}
+.hero{padding:72px 0 48px}
+h1{font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.2;margin:0 0 16px}
+.lead{color:var(--muted);font-size:1.1rem;max-width:640px}
+h2{font-size:1.3rem;margin:48px 0 16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px}
+.card h3{margin:0 0 6px;font-size:1.05rem}
+.card p{margin:0;color:var(--muted);font-size:.95rem}
+.badge{display:inline-block;font-size:.75rem;color:var(--accent);border:1px solid var(--accent);border-radius:99px;padding:1px 8px;margin-bottom:10px}
+a{color:var(--accent)}
+footer{border-top:1px solid var(--line);margin-top:72px;padding:24px 0;color:var(--muted);font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
+</style>
+</head>
+<body>
+<header><div class="wrap"><div class="logo">Bari<span>um</span></div>
+<nav><a href="#modules">Modules</a><a href="#support">Support</a></nav></div></header>
+<main class="wrap">
+<section class="hero">
+<h1>Focused Odoo modules that do one thing well.</h1>
+<p class="lead">Barium builds small, carefully tested extensions for Odoo 18, 19 and 20, compatible with both Community and Enterprise. Every module is maintained across versions and documented step by step.</p>
+</section>
+
+<section id="modules">
+<h2>Modules</h2>
+<div class="grid">
+<div class="card"><span class="badge">In development</span><h3>French bank payment gateways</h3><p>Payment providers for French banking platforms, built for the latest Odoo releases.</p></div>
+</div>
+</section>
+
+<section>
+<h2>How we work</h2>
+<div class="grid">
+<div class="card"><h3>Three versions</h3><p>Each module ships for Odoo 18.0, 19.0 and 20.0.</p></div>
+<div class="card"><h3>Community &amp; Enterprise</h3><p>Minimal dependencies, so modules run on both editions.</p></div>
+<div class="card"><h3>Tested &amp; translated</h3><p>Automated tests on every release, English and French included.</p></div>
+</div>
+</section>
+
+<section id="support">
+<h2>Support</h2>
+<p>Bought a Barium module? Write to <a href="mailto:SUPPORT_EMAIL">SUPPORT_EMAIL</a> with your Odoo version and a short description of the issue. We usually answer within two business days.</p>
+</section>
+</main>
+<footer><div class="wrap"><span>© 2026 Barium</span><a href="legal.html">Legal notice</a></div></footer>
+</body>
+</html>
