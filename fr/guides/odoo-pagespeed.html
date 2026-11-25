@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pourquoi les boutiques Odoo ont une mauvaise note Google PageSpeed, et comment l'améliorer — Barium</title>
+<meta name="description" content="Pourquoi les boutiques Odoo eCommerce obtiennent de mauvais scores Google PageSpeed et Core Web Vitals : feuille de style bloquante, images produits chargées en différé, temps de rendu serveur. Ce qu'il faut corriger, avec des mesures.">
+<link rel="alternate" hreflang="en" href="../../guides/odoo-pagespeed.html">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<header><div class="wrap"><a class="logo" href="../index.html" style="color:inherit;text-decoration:none">Bari<span>um</span></a>
+<nav><a href="../index.html#guides">Guides</a><a class="lang" href="../../guides/odoo-pagespeed.html">EN</a></nav></div></header>
+<main class="wrap article">
+<h1>Pourquoi les boutiques Odoo ont une mauvaise note Google PageSpeed, et comment l'améliorer</h1>
+<p class="meta">Novembre 2026 · Odoo 18, 19 et 20</p>
+
+<p>Passez une boutique Odoo dans Google PageSpeed Insights, sur mobile : le score de performance est souvent orange ou rouge, même avec un bon serveur. L'hébergement n'est pas seul en cause : trois choses, dans une boutique Odoo standard, ralentissent ce que Google mesure.</p>
+
+<h2>Ce que mesure PageSpeed</h2>
+<p>PageSpeed lance Lighthouse en simulant un téléphone de milieu de gamme sur une connexion mobile lente. Les indicateurs qui comptent le plus :</p>
+<ul>
+<li><b>First Contentful Paint (FCP)</b> : l'apparition du premier texte ou de la première image.</li>
+<li><b>Largest Contentful Paint (LCP)</b> : l'apparition de l'élément principal, sur une boutique en général la première photo produit. C'est l'un des trois Core Web Vitals que Google utilise pour le référencement ; l'objectif est 2,5 secondes maximum.</li>
+<li><b>Temps de réponse du serveur</b> (Time To First Byte) : rien ne s'affiche avant que le serveur ait répondu.</li>
+</ul>
+
+<h2>Cause 1 : toute la feuille de style bloque le premier affichage</h2>
+<p>Odoo envoie une seule grosse feuille de style pour tout le site (environ 1,1 Mo avant compression sur la boutique de démo). Le navigateur l'attend en entier avant d'afficher quoi que ce soit, alors qu'une page n'en utilise qu'une petite partie.</p>
+<p><b>Ce qui aide :</b> envoyer d'abord le CSS dont la page a réellement besoin (« CSS critique ») et charger le reste juste après. Sur la boutique de démo Odoo 20, le premier affichage de la page boutique est passé de 3,79 s à 1,75 s sur mobile.</p>
+
+<h2>Cause 2 : des photos produits chargées tard et trop grandes</h2>
+<p>Odoo charge en différé (« lazy loading ») toutes les images de la boutique, y compris les premières que voient les visiteurs : le navigateur les découvre tard. Les téléphones téléchargent aussi de grandes versions des photos pour de petites vignettes.</p>
+<p><b>Ce qui aide :</b></p>
+<ul>
+<li>Importer des photos de taille raisonnable : une photo d'appareil de 6000 px n'est jamais nécessaire.</li>
+<li>Charger immédiatement la première rangée de produits et indiquer au navigateur la taille réelle d'affichage de chaque image.</li>
+<li>Servir les images en WebP, plus léger que le JPEG et le PNG.</li>
+</ul>
+<p>Sur la boutique de démo Odoo 20 avec des photos réelles (2400 px), charger les premières images en priorité et à la bonne taille a fait passer le LCP de la page boutique de 12,9 s à 3,8 s sur mobile, et son poids de 6,6 Mo à 2,2 Mo.</p>
+
+<h2>Cause 3 : chaque page recalculée pour chaque visiteur</h2>
+<p>Odoo génère chaque page sur le serveur, pour chaque visiteur : produits, prix, menus, traductions. Sur la boutique de démo, la page boutique demande environ 165 ms de serveur avec un seul worker ; sur un gros catalogue, c'est souvent bien plus, et ça augmente avec le trafic.</p>
+<p><b>Ce qui aide :</b> un cache de pages pour les visiteurs anonymes, qui ne doit jamais servir une page contenant le panier ou la session de quelqu'un d'autre. Sur la boutique de démo, la page boutique est passée de 165 ms à 9 ms de serveur.</p>
+
+<h2>Ce que vous pouvez vérifier dès aujourd'hui, sans module</h2>
+<ul>
+<li>Testez la page boutique et une fiche produit dans PageSpeed Insights, sur mobile, plusieurs fois : les résultats varient d'un essai à l'autre.</li>
+<li>Vérifiez la taille de vos photos produits et bannières ; réduisez tout ce qui dépasse environ 2000 px.</li>
+<li>Assurez-vous que votre proxy compresse les réponses (gzip ou brotli) et met en cache les fichiers statiques.</li>
+<li>Retirez les blocs et applications du site que vous n'utilisez pas : ils ajoutent du CSS et du JavaScript à chaque page.</li>
+</ul>
+
+<h2>Les modules qui traitent ces trois causes</h2>
+<div class="cta">
+<p><b>Website Speed: Shop LCP</b> : premières photos produits chargées en priorité et à la bonne taille. Sans Python, compatible Odoo Online. <a href="https://apps.odoo.com/apps/modules/20.0/barium_website_lcp_boost">Apps Store</a> · <a href="https://www.youtube.com/watch?v=o90MydhTYGU">démo d'une minute</a></p>
+<p><b>Website Speed: CSS &amp; WebP</b> : CSS critique automatique et images WebP sur toutes les pages. <a href="https://apps.odoo.com/apps/modules/20.0/barium_website_speed_pro">Apps Store</a> · <a href="https://www.youtube.com/watch?v=GPjvThIEa44">démo d'une minute</a></p>
+<p><b>Website Speed: Page Cache</b> : pages servies en quelques millisecondes aux visiteurs anonymes. <a href="https://apps.odoo.com/apps/modules/20.0/barium_website_page_cache">Apps Store</a> · <a href="https://www.youtube.com/watch?v=78zGD0fIZtY">démo d'une minute</a></p>
+</div>
+<p class="meta">Mesures : boutique de démo Odoo 20.0, Lighthouse mobile avec bridage appliqué, médiane de 5 essais (indicateurs de page) ou de 15 requêtes (temps serveur). Les résultats dépendent de votre thème, de vos images, de votre catalogue et de votre hébergement.</p>
+</main>
+<footer><div class="wrap"><span>© 2026 Barium</span><a href="../../legal.html">Mentions légales</a></div></footer>
+</body>
+</html>

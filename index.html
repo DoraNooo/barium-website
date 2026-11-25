@@ -3,49 +3,46 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Barium — Odoo modules</title>
-<meta name="description" content="Barium builds small, well-tested Odoo modules for Odoo 18, 19 and 20, Community and Enterprise.">
-<style>
-:root{--bg:#fbfbfa;--fg:#1d1f22;--muted:#5d636b;--line:#e3e5e8;--accent:#4b5bd6;--card:#fff}
-@media (prefers-color-scheme:dark){:root{--bg:#141619;--fg:#eceef1;--muted:#9aa1ab;--line:#2a2e34;--accent:#8c98ff;--card:#1b1e22}}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-.wrap{max-width:880px;margin:0 auto;padding:0 20px}
-header{border-bottom:1px solid var(--line)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{font-weight:700;letter-spacing:.02em;font-size:1.15rem}
-.logo span{color:var(--accent)}
-nav a{color:var(--muted);text-decoration:none;margin-left:20px}
-nav a:hover{color:var(--fg)}
-.hero{padding:72px 0 48px}
-h1{font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.2;margin:0 0 16px}
-.lead{color:var(--muted);font-size:1.1rem;max-width:640px}
-h2{font-size:1.3rem;margin:48px 0 16px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px}
-.card h3{margin:0 0 6px;font-size:1.05rem}
-.card p{margin:0;color:var(--muted);font-size:.95rem}
-.badge{display:inline-block;font-size:.75rem;color:var(--accent);border:1px solid var(--accent);border-radius:99px;padding:1px 8px;margin-bottom:10px}
-a{color:var(--accent)}
-footer{border-top:1px solid var(--line);margin-top:72px;padding:24px 0;color:var(--muted);font-size:.9rem}
-footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
-</style>
+<title>Barium — Odoo modules for website speed and accessibility</title>
+<meta name="description" content="Barium builds small, well-tested Odoo modules for Odoo 18, 19 and 20: website speed (PageSpeed, Core Web Vitals, page cache) and accessibility (WCAG 2.2, European Accessibility Act).">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header><div class="wrap"><div class="logo">Bari<span>um</span></div>
-<nav><a href="#modules">Modules</a><a href="#support">Support</a></nav></div></header>
+<nav><a href="#speed">Website Speed</a><a href="#accessibility">Accessibility</a><a href="#guides">Guides</a><a href="#support">Support</a><a class="lang" href="fr/">FR</a></nav></div></header>
 <main class="wrap">
 <section class="hero">
 <h1>Focused Odoo modules that do one thing well.</h1>
-<p class="lead">Barium builds small, carefully tested extensions for Odoo 18, 19 and 20, compatible with both Community and Enterprise. Every module is maintained across versions and documented step by step.</p>
+<p class="lead">Barium builds small, carefully tested extensions for Odoo 18, 19 and 20, compatible with both Community and Enterprise. Every module is maintained across versions, measured, and documented step by step.</p>
 </section>
 
-<section id="modules">
-<h2>Website Speed modules</h2>
+<section id="speed">
+<h2>Website Speed</h2>
 <div class="grid">
-<div class="card"><span class="badge">Odoo Online compatible</span><h3>LCP Boost</h3><p>Product images loaded first and in the right size: a much faster shop on phones. No Python code.</p></div>
-<div class="card"><span class="badge">Every page</span><h3>Speed Pro</h3><p>Automatic critical CSS and WebP images: the first paint of every website page about twice as fast.</p></div>
-<div class="card"><span class="badge">Server</span><h3>Page Cache</h3><p>Pages served to anonymous visitors in a few milliseconds, safely: carts, forms and logged-in users always get live pages.</p></div>
+<div class="card"><span class="badge">Odoo Online compatible</span><h3>Website Speed: Shop LCP</h3><p>The first product photos of the shop loaded first and at the right size: Largest Contentful Paint −70 % on the Odoo 20 demo shop with real photos.</p>
+<p><a href="https://apps.odoo.com/apps/modules/20.0/barium_website_lcp_boost">Apps Store</a> · <a href="https://www.youtube.com/watch?v=o90MydhTYGU">Demo video</a></p></div>
+<div class="card"><span class="badge">Every page</span><h3>Website Speed: CSS &amp; WebP</h3><p>Automatic critical CSS and WebP images: the first display of every website page about twice as fast.</p>
+<p><a href="https://apps.odoo.com/apps/modules/20.0/barium_website_speed_pro">Apps Store</a> · <a href="https://www.youtube.com/watch?v=GPjvThIEa44">Demo video</a></p></div>
+<div class="card"><span class="badge">Server</span><h3>Website Speed: Page Cache</h3><p>Pages served to anonymous visitors in a few milliseconds, safely: carts, forms and logged-in users always get live pages.</p>
+<p><a href="https://apps.odoo.com/apps/modules/20.0/barium_website_page_cache">Apps Store</a> · <a href="https://www.youtube.com/watch?v=78zGD0fIZtY">Demo video</a></p></div>
+</div>
+</section>
+
+<section id="accessibility">
+<h2>Accessibility</h2>
+<div class="grid">
+<div class="card"><span class="badge">Odoo Online compatible</span><h3>Accessibility: WCAG Fixes</h3><p>Real fixes in the pages provided by Odoo, no overlay: visible keyboard focus, autofill, accessible names, contrast. WCAG errors found by axe-core on the demo shop: 15 → 0.</p>
+<p><a href="https://apps.odoo.com/apps/modules/20.0/barium_website_accessibility_wcag">Apps Store</a> · <a href="https://www.youtube.com/watch?v=j2Ykxhk5wgQ">Demo video</a></p></div>
+<div class="card"><span class="badge">Your content</span><h3>Accessibility Pro: Audit</h3><p>Checks your pages, products and blog posts in every language, lets you describe images from one list, and publishes your EAA / RGAA accessibility statement.</p>
+<p><a href="https://apps.odoo.com/apps/modules/20.0/barium_website_accessibility_audit">Apps Store</a> · <a href="https://www.youtube.com/watch?v=ZPq88niXZhc">Demo video</a></p></div>
+</div>
+</section>
+
+<section id="guides">
+<h2>Guides</h2>
+<div class="grid">
+<div class="card"><h3><a href="guides/odoo-pagespeed.html">Why Odoo shops score low on Google PageSpeed</a></h3><p>What PageSpeed measures, the three causes in a standard Odoo shop, and what you can fix with or without a module.</p></div>
+<div class="card"><h3><a href="guides/odoo-accessibility-eaa.html">European Accessibility Act: a checklist for Odoo shops</a></h3><p>Who is concerned, what to check on an Odoo website, and why overlays are not enough.</p></div>
 </div>
 </section>
 
@@ -53,7 +50,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
 <h2>How we work</h2>
 <div class="grid">
 <div class="card"><h3>Three versions</h3><p>Each module ships for Odoo 18.0, 19.0 and 20.0.</p></div>
-<div class="card"><h3>Community &amp; Enterprise</h3><p>Minimal dependencies, so modules run on both editions.</p></div>
+<div class="card"><h3>Measured</h3><p>Every claimed gain is measured on a demo shop, with the conditions of the measurement.</p></div>
 <div class="card"><h3>Tested &amp; translated</h3><p>Automated tests on every release, English and French included.</p></div>
 </div>
 </section>

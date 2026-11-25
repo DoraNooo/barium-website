@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why Odoo shops score low on Google PageSpeed, and how to fix it — Barium</title>
+<meta name="description" content="Why Odoo eCommerce shops get low Google PageSpeed and Core Web Vitals scores: the render-blocking stylesheet, lazy-loaded product images and server rendering time. What to fix, with measured results.">
+<link rel="alternate" hreflang="fr" href="../fr/guides/odoo-pagespeed.html">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="wrap"><a class="logo" href="../index.html" style="color:inherit;text-decoration:none">Bari<span>um</span></a>
+<nav><a href="../index.html#guides">Guides</a><a class="lang" href="../fr/guides/odoo-pagespeed.html">FR</a></nav></div></header>
+<main class="wrap article">
+<h1>Why Odoo shops score low on Google PageSpeed, and how to fix it</h1>
+<p class="meta">November 2026 · Odoo 18, 19 and 20</p>
+
+<p>Run an Odoo eCommerce shop through Google PageSpeed Insights on a phone and the performance score is often in the orange or red, even on a fast server. The reason is not your hosting alone: three things in a standard Odoo shop slow down what Google measures.</p>
+
+<h2>What PageSpeed measures</h2>
+<p>PageSpeed runs Lighthouse with a simulated mid-range phone and a slow mobile connection. The metrics that matter most:</p>
+<ul>
+<li><b>First Contentful Paint (FCP)</b>: when the first text or image appears.</li>
+<li><b>Largest Contentful Paint (LCP)</b>: when the main element appears, on a shop usually the first product photo. It is one of the three Core Web Vitals Google uses as a ranking signal; the target is 2.5 seconds or less.</li>
+<li><b>Server response time</b> (Time To First Byte): nothing can be displayed before the server has answered.</li>
+</ul>
+
+<h2>Cause 1: the whole stylesheet blocks the first display</h2>
+<p>Odoo sends one big stylesheet for the whole website (about 1.1 MB before compression on the demo shop). The browser waits for all of it before showing anything, although a single page uses only a small part of it.</p>
+<p><b>What helps:</b> serving first the CSS the page actually needs ("critical CSS") and loading the rest right after. On the Odoo 20 demo shop, this made the first display of the shop page go from 3.79 s to 1.75 s on mobile.</p>
+
+<h2>Cause 2: product photos loaded late and too large</h2>
+<p>Odoo marks every product image of the shop as lazy-loaded, including the first ones visitors see. The browser discovers them late. Phones also download large variants of the photos for small thumbnails.</p>
+<p><b>What helps:</b></p>
+<ul>
+<li>Upload photos at a reasonable size: a 6000 px camera photo is never needed.</li>
+<li>Load the first row of products immediately and tell the browser the real display size of each image.</li>
+<li>Serve images as WebP, lighter than JPEG and PNG.</li>
+</ul>
+<p>On the Odoo 20 demo shop with real-size photos (2400 px), loading the first images first and at the right size took the LCP of the shop page from 12.9 s to 3.8 s on mobile, and its weight from 6.6 MB to 2.2 MB.</p>
+
+<h2>Cause 3: every page rendered again for every visitor</h2>
+<p>Odoo renders each page on the server for each visitor: products, prices, menus, translations. On the demo shop, the shop page takes about 165 ms of server time with one worker; on a large catalog it can be much more, and it grows with traffic.</p>
+<p><b>What helps:</b> a page cache for anonymous visitors, which must never serve a page that contains someone else's cart or session. On the demo shop the shop page went from 165 ms to 9 ms of server time.</p>
+
+<h2>Checks you can do today, without any module</h2>
+<ul>
+<li>Test the shop page and a product page in PageSpeed Insights, on mobile, a few times: results vary between runs.</li>
+<li>Check the size of your product photos and banners; resize anything above about 2000 px.</li>
+<li>Make sure your reverse proxy compresses responses (gzip or brotli) and caches static files.</li>
+<li>Remove website snippets and apps you do not use: they add CSS and JavaScript to every page.</li>
+</ul>
+
+<h2>Modules that fix these three causes</h2>
+<div class="cta">
+<p><b>Website Speed: Shop LCP</b> — first product photos loaded first and at the right size. No Python code, works on Odoo Online. <a href="https://apps.odoo.com/apps/modules/20.0/barium_website_lcp_boost">Apps Store</a> · <a href="https://www.youtube.com/watch?v=o90MydhTYGU">1-minute demo</a></p>
+<p><b>Website Speed: CSS &amp; WebP</b> — automatic critical CSS and WebP images on every page. <a href="https://apps.odoo.com/apps/modules/20.0/barium_website_speed_pro">Apps Store</a> · <a href="https://www.youtube.com/watch?v=GPjvThIEa44">1-minute demo</a></p>
+<p><b>Website Speed: Page Cache</b> — pages served in milliseconds to anonymous visitors. <a href="https://apps.odoo.com/apps/modules/20.0/barium_website_page_cache">Apps Store</a> · <a href="https://www.youtube.com/watch?v=78zGD0fIZtY">1-minute demo</a></p>
+</div>
+<p class="meta">Measurements: Odoo 20.0 demo shop, Lighthouse mobile with applied throttling, median of 5 runs (page metrics) or 15 requests (server time). Results depend on your theme, images, catalog and hosting.</p>
+</main>
+<footer><div class="wrap"><span>© 2026 Barium</span><a href="../legal.html">Legal notice</a></div></footer>
+</body>
+</html>

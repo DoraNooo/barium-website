@@ -1,0 +1,32 @@
+:root{--bg:#fbfbfa;--fg:#1d1f22;--muted:#5d636b;--line:#e3e5e8;--accent:#4b5bd6;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#141619;--fg:#eceef1;--muted:#9aa1ab;--line:#2a2e34;--accent:#8c98ff;--card:#1b1e22}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:700;letter-spacing:.02em;font-size:1.15rem}
+.logo span{color:var(--accent)}
+nav a{color:var(--muted);text-decoration:none;margin-left:20px}
+nav a:hover{color:var(--fg)}
+.hero{padding:72px 0 48px}
+h1{font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.2;margin:0 0 16px}
+.lead{color:var(--muted);font-size:1.1rem;max-width:640px}
+h2{font-size:1.3rem;margin:48px 0 16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px}
+.card h3{margin:0 0 6px;font-size:1.05rem}
+.card p{margin:0;color:var(--muted);font-size:.95rem}
+.badge{display:inline-block;font-size:.75rem;color:var(--accent);border:1px solid var(--accent);border-radius:99px;padding:1px 8px;margin-bottom:10px}
+a{color:var(--accent)}
+footer{border-top:1px solid var(--line);margin-top:72px;padding:24px 0;color:var(--muted);font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
+.article{max-width:720px}
+.article h1{margin-top:48px}
+.article h2{margin-top:40px}
+.article li{margin-bottom:6px}
+.article .meta{color:var(--muted);font-size:.9rem}
+.article table{border-collapse:collapse;margin:12px 0}
+.article th,.article td{border-bottom:1px solid var(--line);padding:6px 12px;text-align:left}
+.cta{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin:24px 0}
+.lang{font-size:.9rem}

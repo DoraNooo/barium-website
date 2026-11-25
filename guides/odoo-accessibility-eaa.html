@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>European Accessibility Act: a checklist for Odoo shops — Barium</title>
+<meta name="description" content="What the European Accessibility Act means for an Odoo eCommerce shop: who is concerned, which standard applies (EN 301 549, WCAG), what to check on an Odoo website and why overlays are not enough.">
+<link rel="alternate" hreflang="fr" href="../fr/guides/odoo-accessibilite-eaa.html">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><div class="wrap"><a class="logo" href="../index.html" style="color:inherit;text-decoration:none">Bari<span>um</span></a>
+<nav><a href="../index.html#guides">Guides</a><a class="lang" href="../fr/guides/odoo-accessibilite-eaa.html">FR</a></nav></div></header>
+<main class="wrap article">
+<h1>European Accessibility Act: a checklist for Odoo shops</h1>
+<p class="meta">November 2026 · Odoo 18, 19 and 20 · This guide is not legal advice.</p>
+
+<p>Since 28 June 2025, the European Accessibility Act (Directive (EU) 2019/882) applies to e-commerce services offered to consumers in the European Union. If you sell online with Odoo, your shop is probably concerned.</p>
+
+<h2>Who is concerned</h2>
+<ul>
+<li>Businesses that sell products or services online to consumers in the EU.</li>
+<li>Microenterprises (fewer than 10 people and an annual turnover or balance sheet of at most 2 million euros) are exempted for the services they provide.</li>
+<li>Each country enforces the act through its own authorities, which can ask for corrections and impose penalties.</li>
+</ul>
+
+<h2>Which standard to follow</h2>
+<p>The harmonised European standard EN 301 549 refers to the Web Content Accessibility Guidelines (WCAG) 2.1 level AA. WCAG 2.2 level AA includes all of them and adds a few criteria. In France, the reference is the RGAA, also based on WCAG. You are also expected to publish an <b>accessibility statement</b> describing how your service meets the requirements.</p>
+
+<h2>What to check on an Odoo website</h2>
+<p>Some problems come from the pages provided by Odoo, most from the content you add yourself.</p>
+<table>
+<tr><th>Check</th><th>Where it usually fails in Odoo</th></tr>
+<tr><td>Images have a text alternative</td><td>Images inserted with the website editor get an empty description by default</td></tr>
+<tr><td>Everything works with the keyboard, and the focus is visible</td><td>Shop filters and some menus show no focus indicator</td></tr>
+<tr><td>Form fields have labels and autofill</td><td>Checkout and contact forms have no autofill tokens</td></tr>
+<tr><td>Links and buttons have a meaningful name</td><td>Icon-only buttons, "click here" links in your texts</td></tr>
+<tr><td>Text contrast is at least 4.5:1</td><td>Light grey texts, colours chosen for your theme</td></tr>
+<tr><td>Headings follow a logical order</td><td>Heading levels chosen for their size in the editor</td></tr>
+</table>
+<p>Free tools help: the axe DevTools browser extension, the accessibility score of Lighthouse, and simply navigating your checkout with the Tab key only.</p>
+
+<h2>Why an overlay is not enough</h2>
+<p>Accessibility toolbars ("overlays") add buttons on top of the page, such as bigger text or high contrast. They do not change the code that screen readers read, so the errors stay. The fixes have to be made in the pages themselves.</p>
+
+<h2>Modules that help</h2>
+<div class="cta">
+<p><b>Accessibility: WCAG Fixes</b> — fixes the pages provided by Odoo: visible keyboard focus, autofill, accessible names, contrast. No Python code, works on Odoo Online. <a href="https://apps.odoo.com/apps/modules/20.0/barium_website_accessibility_wcag">Apps Store</a> · <a href="https://www.youtube.com/watch?v=j2Ykxhk5wgQ">1-minute demo</a></p>
+<p><b>Accessibility Pro: Audit</b> — checks your own pages, products and blog posts in every language, lets you describe images from one list, and publishes your accessibility statement (EAA or RGAA model). <a href="https://apps.odoo.com/apps/modules/20.0/barium_website_accessibility_audit">Apps Store</a> · <a href="https://www.youtube.com/watch?v=ZPq88niXZhc">1-minute demo</a></p>
+</div>
+<p class="meta">No module can make a website compliant on its own: automated checks find only part of the problems, and your content and your statement remain your responsibility.</p>
+</main>
+<footer><div class="wrap"><span>© 2026 Barium</span><a href="../legal.html">Legal notice</a></div></footer>
+</body>
+</html>

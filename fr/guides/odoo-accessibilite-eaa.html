@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>European Accessibility Act : la check-list des boutiques Odoo — Barium</title>
+<meta name="description" content="Ce que l'European Accessibility Act change pour une boutique Odoo : qui est concerné, quel référentiel suivre (EN 301 549, WCAG, RGAA), quoi vérifier sur un site Odoo et pourquoi une surcouche ne suffit pas.">
+<link rel="alternate" hreflang="en" href="../../guides/odoo-accessibility-eaa.html">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<header><div class="wrap"><a class="logo" href="../index.html" style="color:inherit;text-decoration:none">Bari<span>um</span></a>
+<nav><a href="../index.html#guides">Guides</a><a class="lang" href="../../guides/odoo-accessibility-eaa.html">EN</a></nav></div></header>
+<main class="wrap article">
+<h1>European Accessibility Act : la check-list des boutiques Odoo</h1>
+<p class="meta">Novembre 2026 · Odoo 18, 19 et 20 · Ce guide n'est pas un conseil juridique.</p>
+
+<p>Depuis le 28 juin 2025, l'European Accessibility Act (directive (UE) 2019/882) s'applique aux services de commerce électronique proposés aux consommateurs dans l'Union européenne. Si vous vendez en ligne avec Odoo, votre boutique est très probablement concernée.</p>
+
+<h2>Qui est concerné</h2>
+<ul>
+<li>Les entreprises qui vendent des produits ou des services en ligne à des consommateurs dans l'UE.</li>
+<li>Les microentreprises (moins de 10 personnes et un chiffre d'affaires ou un total de bilan annuel d'au plus 2 millions d'euros) sont exemptées pour les services qu'elles fournissent.</li>
+<li>Chaque pays contrôle l'application du texte par ses propres autorités, qui peuvent demander des corrections et prononcer des sanctions.</li>
+</ul>
+
+<h2>Quel référentiel suivre</h2>
+<p>La norme européenne harmonisée EN 301 549 renvoie aux règles WCAG 2.1 niveau AA. Les WCAG 2.2 niveau AA les incluent toutes et ajoutent quelques critères. En France, le référentiel est le RGAA, lui aussi fondé sur les WCAG. Il faut aussi publier une <b>déclaration d'accessibilité</b> qui explique comment votre service répond aux exigences.</p>
+
+<h2>Quoi vérifier sur un site Odoo</h2>
+<p>Certains défauts viennent des pages fournies par Odoo, la plupart du contenu que vous ajoutez vous-même.</p>
+<table>
+<tr><th>Point à vérifier</th><th>Où ça coince en général dans Odoo</th></tr>
+<tr><td>Les images ont une alternative textuelle</td><td>Les images insérées avec l'éditeur reçoivent une description vide par défaut</td></tr>
+<tr><td>Tout fonctionne au clavier, et le focus est visible</td><td>Les filtres de la boutique et certains menus n'affichent aucun indicateur de focus</td></tr>
+<tr><td>Les champs de formulaire ont une étiquette et la saisie automatique</td><td>Les formulaires de commande et de contact n'ont pas d'attributs de saisie automatique</td></tr>
+<tr><td>Les liens et boutons ont un nom explicite</td><td>Boutons faits d'une seule icône, liens « cliquez ici » dans vos textes</td></tr>
+<tr><td>Le contraste du texte est d'au moins 4,5:1</td><td>Textes gris clair, couleurs choisies pour votre thème</td></tr>
+<tr><td>Les titres suivent un ordre logique</td><td>Niveaux de titre choisis pour leur taille dans l'éditeur</td></tr>
+</table>
+<p>Des outils gratuits aident : l'extension de navigateur axe DevTools, le score Accessibilité de Lighthouse, et tout simplement parcourir votre tunnel de commande avec la seule touche Tab.</p>
+
+<h2>Pourquoi une surcouche ne suffit pas</h2>
+<p>Les barres d'outils d'accessibilité (« overlays ») ajoutent des boutons par-dessus la page : texte plus grand, contraste renforcé... Elles ne changent pas le code que lisent les lecteurs d'écran : les erreurs restent. Les corrections doivent être faites dans les pages elles-mêmes.</p>
+
+<h2>Les modules qui aident</h2>
+<div class="cta">
+<p><b>Accessibility: WCAG Fixes</b> : corrige les pages fournies par Odoo (focus clavier visible, saisie automatique, noms accessibles, contrastes). Sans Python, compatible Odoo Online. <a href="https://apps.odoo.com/apps/modules/20.0/barium_website_accessibility_wcag">Apps Store</a> · <a href="https://www.youtube.com/watch?v=j2Ykxhk5wgQ">démo d'une minute</a></p>
+<p><b>Accessibility Pro: Audit</b> : contrôle vos pages, produits et articles dans toutes les langues, fait décrire les images depuis une seule liste et publie votre déclaration d'accessibilité (modèle RGAA ou EAA). <a href="https://apps.odoo.com/apps/modules/20.0/barium_website_accessibility_audit">Apps Store</a> · <a href="https://www.youtube.com/watch?v=ZPq88niXZhc">démo d'une minute</a></p>
+</div>
+<p class="meta">Aucun module ne rend un site conforme à lui seul : les contrôles automatiques ne trouvent qu'une partie des problèmes, et votre contenu comme votre déclaration restent sous votre responsabilité.</p>
+</main>
+<footer><div class="wrap"><span>© 2026 Barium</span><a href="../../legal.html">Mentions légales</a></div></footer>
+</body>
+</html>
